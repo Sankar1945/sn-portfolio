@@ -1,0 +1,9 @@
+{
+  "name": "energy-reactor-v3-preview",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@react-three/postprocessing": "2.19.1",
+    "postprocessing": "6.38.3"
+  }
+}

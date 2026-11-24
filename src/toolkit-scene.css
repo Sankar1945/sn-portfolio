@@ -1,0 +1,218 @@
+#skills {
+  max-width: 1400px;
+  padding-inline: clamp(20px, 5vw, 72px);
+  --skills-header-offset: max(110px, calc(env(safe-area-inset-top) + 96px));
+  padding-block: clamp(3.25rem, 5.8vw, 5.25rem);
+  scroll-margin-top: var(--skills-header-offset);
+}
+.skills-keyboard__header { max-width: 48rem; margin-block-end: clamp(1.5rem, 3vw, 2.9rem); }
+.skills-keyboard__kicker {
+  color: var(--blue-soft);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.skills-keyboard__header .sectionTitle { margin: .62rem 0 .48rem; }
+.skills-keyboard__header .sectionTitle span { display: inline-block; color: #f2f6fc; }
+.skills-keyboard__header .sectionTitle span { color: var(--blue-soft); }
+.skills-keyboard__header .subhead { margin: 0; }
+.skills-keyboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2.125fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2.65rem);
+}
+.skills-keyboard__detail {
+  position: sticky;
+  top: var(--skills-header-offset);
+  min-width: 0;
+  padding: clamp(1.15rem, 2.45vw, 2rem);
+  border: 1px solid #344961;
+  border-top-color: #587793;
+  border-radius: 10px;
+  background: radial-gradient(ellipse at 46% 0%, #168cf517, transparent 66%), var(--surface);
+  scroll-margin-top: calc(var(--skills-header-offset) + 10px);
+}
+.skills-keyboard__detail-stage { position: relative; }
+.skills-keyboard__detail-copy { min-height: 17rem; padding-block-start: 1.04rem; }
+.skills-keyboard__badge {
+  display: inline-block;
+  padding: .25rem .45rem;
+  color: var(--blue-soft);
+  font-size: .73rem;
+  border: 1px solid #3d5974;
+  border-radius: 5px;
+}
+.skills-keyboard__detail h3 {
+  margin: .65rem 0 .42rem;
+  color: #f2f6fc;
+  font-size: clamp(1.28rem, 2.2vw, 1.8rem);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+}
+.skills-keyboard__detail h4 {
+  letter-spacing: .115em;
+  font-size: .69rem;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+  margin: 0 0 .36rem;
+}
+.skills-keyboard__detail-copy p { margin: 0; color: var(--text-muted); font-size: .9rem; line-height: 1.55; }
+.skills-keyboard__detail-copy .skills-keyboard__project { margin-top: .65rem; color: var(--signature-light); font-size: .75rem; }
+.skills-keyboard__accent { margin-block: 1rem .8rem; width: 2.9rem; height: 1px; background: var(--signature); transform-origin: left; }
+.skills-keyboard__explain.skill-explain {
+  display: inline-flex;
+  gap: .4rem;
+  align-items: center;
+  color: var(--text);
+  background: #122236;
+  border: 1px solid #55dbff69;
+  border-radius: 999px;
+  padding: .35rem .72rem;
+  min-height: 36px;
+  font-size: .8rem;
+}
+.skills-keyboard__explain.skill-explain:hover { border-color: var(--cyan); box-shadow: 0 0 12px var(--cyan-halo); }
+.skills-keyboard__explain svg { flex-shrink: 0; color: var(--signature); }
+.skills-keyboard__jump { display: none; }
+
+#skills :is(button, a):focus-visible { outline: 2px solid #7acaef; outline-offset: 3px; }
+
+
+.skills-keyboard__board {
+  min-width: 0;
+  padding: .48rem clamp(.75rem, 1.65vw, 1.35rem);
+  border: 1px solid #30435b;
+  border-bottom: 3px solid #070e1b;
+  border-radius: 11px;
+  background: linear-gradient(150deg, #142031, #0c1623 58%);
+  box-shadow: inset 0 1px #a4caee16, 0 5px 13px #060b1460;
+}
+.skills-keyboard__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(104px, .25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: .75rem;
+  padding-block: .93rem 1.08rem;
+}
+.skills-keyboard__row + .skills-keyboard__row::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  transform-origin: left;
+  background: var(--line);
+}
+.skills-keyboard__row h3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .46rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .84rem;
+  line-height: 1.32;
+  padding-inline-start: .62rem;
+}
+.skills-keyboard__row h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: transparent;
+}
+.skills-keyboard__row h3 svg { flex-shrink: 0; color: var(--blue-soft); }
+.skills-keyboard__row[data-active='true'] h3 { color: var(--text); }
+.skills-keyboard__row[data-active='true'] h3::before { background: var(--signature); box-shadow: 0 0 6px #b8ff454d; }
+.skills-keyboard__keys { display: flex; flex-wrap: wrap; gap: .55rem; min-width: 0; }
+.skills-keyboard__keys button {
+  --key-depth: 4px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .48rem;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 43px;
+  padding: .48rem .63rem;
+  border: 1px solid #405672;
+  border-radius: 6px;
+  color: var(--text);
+  background: linear-gradient(155deg, #243248, #172338 70%);
+  box-shadow: inset 0 1px #c3dbff25, inset 1px 0 #a6cbff0d,
+    0 var(--key-depth) #080f1d, 0 calc(var(--key-depth) + 1px) #30445d, 0 7px 9px #04091260;
+  font-weight: 700;
+  font-size: .75rem;
+  text-align: start;
+  transition: translate .15s, border-color .17s, box-shadow .17s;
+}
+.skills-keyboard__keys button span { min-width: 0; overflow-wrap: anywhere; }
+.skills-keyboard__keys button svg { flex-shrink: 0; color: var(--blue-soft); opacity: .72; }
+@media (hover: hover) {
+  .skills-keyboard__keys button[aria-pressed='false']:hover {
+    translate: 0 -2px;
+    border-color: var(--blue);
+    box-shadow: inset 0 1px #c3dbff25, 0 5px #080f1d, 0 6px #314b64, 0 0 13px #168cf535;
+  }
+}
+.skills-keyboard__keys button[aria-pressed='true'] {
+  color: #162103;
+  border-color: #d3ff8e;
+  background: linear-gradient(155deg, var(--signature-light), var(--signature) 65%);
+  box-shadow: inset 0 1px #efffb6, 0 var(--key-depth) #527c21, 0 6px 12px #b8ff452b;
+}
+.skills-keyboard__keys button[aria-pressed='true'] svg { color: inherit; opacity: 1; }
+.skills-keyboard__keys button:active,
+.skills-keyboard__keys button[aria-pressed='false']:active {
+  --key-depth: 1px;
+  translate: 0 3px;
+  box-shadow: inset 0 1px #c3dbff25, 0 1px #080f1d, 0 2px 5px #070c18;
+}
+@media (max-width: 1000px) {
+  .skills-keyboard { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+  .skills-keyboard__row { grid-template-columns: minmax(0, 1fr); gap: .68rem; }
+}
+@media (max-width: 760px) {
+  .skills-keyboard { grid-template-columns: minmax(0, 1fr); }
+  .skills-keyboard__detail { position: static; }
+  .skills-keyboard__detail-copy { min-height: 0; }
+  .skills-keyboard__keys { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skills-keyboard__jump {
+    position: sticky;
+    top: var(--skills-header-offset);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .45rem;
+    min-height: 44px;
+    padding: .35rem .65rem;
+    margin: .35rem 0 .6rem;
+    background: #101e2f;
+    border: 1px solid #3c5974;
+    border-radius: 6px;
+    color: var(--blue-soft);
+    font-size: .77rem;
+  }
+  .skills-keyboard__jump svg { flex-shrink: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skills-keyboard__header[data-entered] { animation: keyboard-rise .45s both; }
+  .skills-keyboard__row[data-entered] h3 { animation: keyboard-rise .42s var(--discipline-delay) both; }
+  .skills-keyboard__row[data-entered] button { animation: keyboard-rise .38s calc(var(--discipline-delay) + var(--key-delay)) both; }
+  .skills-keyboard__row[data-entered]::before { animation: keyboard-line .5s var(--discipline-delay) both; }
+  .skills-keyboard__detail[data-entered] { animation: keyboard-rise .5s .18s both; }
+  .skills-keyboard__accent { animation: keyboard-line .31s ease-out both; }
+  @keyframes keyboard-rise { from { opacity: .42; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes keyboard-line { from { transform: scaleX(.12); } to { transform: scaleX(1); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skills-keyboard__keys button { transition: none; }
+  .skills-keyboard__keys button:is(:hover,:active) { translate: none; }
+}

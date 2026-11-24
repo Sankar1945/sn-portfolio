@@ -1,0 +1,46 @@
+﻿#about {
+  padding-block-end: clamp(4rem, 7vw, 7.5rem);
+}
+
+.about-actions {
+  --reveal-rise: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+
+.about-actions > :is(a, button) {
+  min-height: 46px;
+  transition: box-shadow .2s ease, translate .2s ease;
+}
+
+.about-actions .resume-download-btn {
+  background: var(--signature);
+  color: #172303;
+}
+
+.about-actions button {
+  background: var(--surface);
+  border-color: var(--blue);
+  color: var(--text);
+}
+
+.resume-download-btn svg { transition: transform .2s ease; }
+
+@media (hover: hover) {
+  .about-actions .resume-download-btn:hover { box-shadow: 0 0 18px var(--signature-halo); }
+  .about-actions button:hover { box-shadow: 0 0 16px var(--cyan-halo); }
+  .resume-download-btn:hover svg { transform: translateY(2px); }
+}
+
+.about-actions > :is(a, button):active { translate: 0 2px; }
+.about-actions > :is(a, button):focus-visible {
+  outline: 2px solid var(--blue-soft);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-actions > :is(a, button):active { translate: none; }
+  .resume-download-btn:hover svg { transform: none; }
+}

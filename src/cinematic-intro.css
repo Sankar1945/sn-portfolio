@@ -1,0 +1,194 @@
+﻿.cinematic-intro {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: #080e19;
+  color: #f2f6fc;
+  opacity: 1;
+  transition: opacity 550ms cubic-bezier(.22, .61, .36, 1);
+}
+
+.cinematic-intro::backdrop { background: transparent; }
+.cinematic-intro[data-ending='true'] { opacity: 0; }
+html:has(.cinematic-intro[open]) { overflow: hidden; }
+
+.cinematic-intro video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cinematic-intro__controls {
+  position: absolute;
+  inset-block-end: max(20px, env(safe-area-inset-bottom));
+  inset-inline-end: max(20px, env(safe-area-inset-right));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cinematic-intro__controls button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #9fcafa80;
+  border-radius: 9px;
+  background: #0b1220eb;
+  color: inherit;
+}
+
+.cinematic-intro__controls button:hover { border-color: #e4ff87; }
+.cinematic-intro__controls button:focus-visible {
+  outline: 2px solid #e4ff87;
+  outline-offset: 3px;
+}
+
+@media (max-aspect-ratio: 4/3), (min-aspect-ratio: 21/9) {
+  .cinematic-intro video { object-fit: contain; }
+}
+
+.cinematic-intro[data-stage='welcome'] video { visibility: hidden; }
+
+.cinematic-welcome {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: auto;
+  padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  background: radial-gradient(ellipse at 50% 34%, #12365b 0%, #0b192b 38%, #080e19 75%);
+}
+
+.cinematic-welcome__content {
+  margin: auto;
+  max-width: 660px;
+  text-align: center;
+  animation: welcome-in .5s ease-out both;
+}
+
+.cinematic-intro[data-stage='confirming'] .cinematic-welcome {
+  pointer-events: none;
+  animation: welcome-out 320ms ease-in both;
+}
+
+.cinematic-welcome__laptop {
+  position: relative;
+  width: min(66vw, 300px);
+  margin: 0 auto clamp(28px, 5vh, 52px);
+  perspective: 780px;
+}
+
+.cinematic-welcome__display {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 5px solid #15243a;
+  border-radius: 12px 12px 4px 4px;
+  background: radial-gradient(ellipse at center, #123758, #080f1a 72%);
+  box-shadow: 0 0 0 1px #5084ad9c, 0 0 55px #168cf543, inset 0 0 25px #168cf526;
+}
+
+.cinematic-welcome__laptop::after {
+  content: '';
+  display: block;
+  height: 12px;
+  width: 113%;
+  margin-left: -6.5%;
+  border-radius: 2px 2px 60% 60%;
+  background: linear-gradient(#425872, #14243c 70%, #111827);
+  border-top: 1px solid #55dbff80;
+  box-shadow: 0 9px 20px #168cf533;
+}
+
+.cinematic-welcome__notification {
+  position: relative;
+  display: grid;
+  width: 55px;
+  height: 55px;
+  place-items: center;
+  border: 1px solid #55dbff80;
+  border-radius: 14px;
+  background: #0f2842;
+  color: #b5efff;
+}
+
+.cinematic-welcome__notification::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b8ff45;
+  box-shadow: 0 0 12px #b8ff456e;
+  animation: invitation-pulse 3.2s ease-in-out infinite;
+}
+
+.cinematic-intro[data-stage='confirming'] .cinematic-welcome__notification {
+  animation: invitation-confirm 320ms ease-out both;
+}
+
+.cinematic-welcome__eyebrow {
+  color: #8be7ff;
+  letter-spacing: .2em;
+  font-size: .72rem;
+  font-weight: 750;
+}
+
+.cinematic-welcome h1 {
+  color: #f2f6fc;
+  margin: .4em 0 .25em;
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.cinematic-welcome__copy { color: #b9cbe2; margin: 1rem 0; }
+.cinematic-welcome__status { color: #e4ff87; font-size: .82rem; }
+
+.cinematic-welcome__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(20px, 4vh, 32px);
+}
+
+.cinematic-welcome__actions button {
+  min-height: 46px;
+  padding: .7rem 1.1rem;
+  border: 1px solid #74c6ef80;
+  border-radius: 10px;
+  color: #eaf4ff;
+  background: #0b1728;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.cinematic-welcome__actions button:first-child {
+  background: #55dbff;
+  color: #07131f;
+  font-weight: 750;
+}
+
+.cinematic-welcome__actions button:hover {
+  border-color: #b8ff45;
+  box-shadow: 0 0 18px #55dbff29;
+}
+
+.cinematic-welcome__actions button:focus-visible {
+  outline: 2px solid #e4ff87;
+  outline-offset: 4px;
+}
+
+@keyframes welcome-in { from { opacity: 0; translate: 0 10px; } }
+@keyframes welcome-out { to { opacity: 0; } }
+@keyframes invitation-pulse { 50% { opacity: .6; scale: .85; } }
+@keyframes invitation-confirm { 55% { scale: 1.1; box-shadow: 0 0 24px #b8ff4570; } }

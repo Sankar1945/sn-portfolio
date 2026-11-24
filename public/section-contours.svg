@@ -1,0 +1,32 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 510" fill="none">
+  <defs>
+    <radialGradient id="ink" cx=".69" cy=".49" r=".66" gradientTransform="matrix(1 0 0 1.24 0 -.12)">
+      <stop stop-color="#58d4ff" stop-opacity=".35"/>
+      <stop offset=".48" stop-color="#3f98ff" stop-opacity=".27"/>
+      <stop offset=".79" stop-color="#168cf5" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#168cf5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aura">
+      <stop stop-color="#b8ff45" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#b8ff45" stop-opacity="0"/>
+    </radialGradient>
+    <path id="ridge" d="M-35 400C31 407 88 379 144 329S250 217 327 218c78 1 110 65 183 71 83 7 128-85 226-96 42-5 94 7 149 28"/>
+  </defs>
+  <g stroke="url(#ink)" stroke-width="1.08">
+    <use href="#ridge" transform="translate(-32 -137)"/>
+    <use href="#ridge" transform="translate(-22 -107)"/>
+    <use href="#ridge" transform="translate(-16 -79)"/>
+    <use href="#ridge" transform="translate(-10 -51)"/>
+    <use href="#ridge" transform="translate(-5 -25)"/>
+    <use href="#ridge"/>
+    <use href="#ridge" transform="translate(9 27)"/>
+    <use href="#ridge" transform="translate(20 56)"/>
+    <use href="#ridge" transform="translate(32 86)"/>
+    <path d="M410 520c-13-51 6-96 49-119 78-41 159 6 226-19 71-26 92-77 182-59"/>
+    <path d="M447 536c-13-51 0-88 40-109 69-37 150 9 218-18 68-27 88-70 161-52"/>
+  </g>
+  <path d="M691 197c14-5 29-9 45-12" stroke="#b8ff45" stroke-opacity=".33"/>
+  <circle cx="736" cy="185" r="11" fill="url(#aura)"/>
+  <circle cx="736" cy="185" r="2" fill="#c1ff62" fill-opacity=".66"/>
+  <circle cx="510" cy="289" r="1.5" fill="#b8ff45" fill-opacity=".48"/>
+</svg>

@@ -1,0 +1,69 @@
+﻿.contact-reveal {
+  --reveal-rise: 16px;
+}
+
+.contact-orbits {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 0;
+  width: min(32%, 360px);
+  transform: translateY(-50%);
+  fill: none;
+  stroke: var(--blue);
+  stroke-opacity: .28;
+  pointer-events: none;
+}
+
+.contact-orbits__traveler {
+  animation: contact-orbit 42s linear infinite;
+}
+
+.contact-orbits__point {
+  fill: var(--signature);
+  stroke: none;
+  filter: drop-shadow(0 0 6px var(--signature));
+}
+
+@keyframes contact-orbit {
+  to { transform: rotate(1turn); }
+}
+
+#contact .buttons > a {
+  transition: translate .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+  #contact .buttons > a:hover { translate: 0 -2px; }
+  #contact .primary:hover { box-shadow: 0 3px 18px var(--signature-halo); }
+  #contact .secondary:hover {
+    border-color: var(--blue-soft);
+    box-shadow: 0 2px 13px var(--cyan-halo);
+  }
+}
+
+#contact .buttons > a:focus-visible {
+  outline: 2px solid var(--blue-soft);
+  outline-offset: 4px;
+}
+
+.site-footer {
+  gap: .5rem 2rem;
+  padding-inline-end: max(5vw, calc(env(safe-area-inset-right) + 104px));
+}
+
+@media (max-width: 1000px) {
+  .contact-orbits { display: none; }
+}
+
+@media (max-width: 680px) {
+  .site-footer {
+    padding-inline-start: 22px;
+    padding-inline-end: max(84px, calc(env(safe-area-inset-right) + 72px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-orbits__traveler { animation: none; }
+  #contact .buttons > a:hover { translate: none; }
+}

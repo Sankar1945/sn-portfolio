@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Clash Display";
+  src: url('/fonts/clash-display.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url('/fonts/general-sans.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+:root {
+  --font-display: "Clash Display", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "General Sans", Satoshi, system-ui, sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+:is(#about, #skills, #experience, #projects, #certifications, #contact) :is(h2, h3, h4),
+.cinematic-welcome h1,
+.credential-preview__bar h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+:is(#about, #skills, #experience, #projects, #certifications, #contact) .sectionTitle {
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+
+.floating-header__links a { font-weight: 500; }
+:is(.heroText .buttons a, .about-actions > :is(a, button), #contact .buttons a) { font-weight: 600; }
+
+/* Preserve space for the featured project's controls in short pinned windows. */
+@media (min-width: 1001px) and (max-height: 740px) {
+  #projects .project-showcase[data-pinned='true'] .projectbody {
+    padding: 18px clamp(20px, 2vw, 28px);
+  }
+  #projects .project-showcase[data-pinned='true'] .projectbody h3 {
+    font-size: clamp(24px, 2.2vw, 30px);
+    margin-block: 8px;
+  }
+  #projects .project-showcase[data-pinned='true'] .projectbody p {
+    margin-block: 8px 10px;
+    line-height: 1.5;
+  }
+  #projects .project-showcase[data-pinned='true'] .tags { gap: 5px; }
+  #projects .project-showcase[data-pinned='true'] .tags span {
+    font-size: .78rem;
+    padding: 5px 8px;
+  }
+  #projects .project-showcase[data-pinned='true'] .project-explore { margin-top: 12px; }
+}

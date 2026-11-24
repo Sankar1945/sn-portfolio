@@ -1,0 +1,50 @@
+main > :is(#about, #skills, #experience, #projects, #certifications, #contact) {
+  position: relative;
+  isolation: isolate;
+}
+
+main > :is(#skills, #experience, #projects, #certifications, #contact)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    url('/section-contours.svg') var(--contour-position, right 8%) / var(--contour-size, min(72%, 54rem)) auto no-repeat,
+    radial-gradient(ellipse at var(--contour-glow, 83% 28%), #168cf51a, transparent 67%);
+  mask-image: linear-gradient(transparent, #000 12%, #000 86%, transparent),
+    linear-gradient(90deg, transparent, #000 12%, #000 84%, transparent);
+  mask-composite: intersect;
+  opacity: var(--contour-opacity, .8);
+}
+
+#skills {
+  --contour-position: left -18% top 18%;
+  --contour-glow: 14% 46%;
+  --contour-opacity: .66;
+}
+#experience {
+  --contour-position: right -6% bottom 6%;
+  --contour-glow: 75% 74%;
+}
+#projects {
+  --contour-position: left -10% top 10%;
+  --contour-glow: 8% 27%;
+  --contour-opacity: .48;
+}
+#certifications {
+  --contour-position: right -9% top 15%;
+  --contour-glow: 89% 23%;
+}
+#contact {
+  --contour-position: right -7% center;
+  --contour-glow: 86% 58%;
+  --contour-size: min(65%, 48rem);
+}
+
+@media (max-width: 680px) {
+  main > :is(#skills, #experience, #projects, #certifications, #contact)::before {
+    background-size: min(100%, 30rem) auto, auto;
+    opacity: .46;
+  }
+}

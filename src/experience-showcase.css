@@ -148,3 +148,9 @@
   .experience-showcase__grid { grid-template-columns: minmax(0, 1fr); }
   .experience-showcase__stage { min-height: 210px; }
 }
+.experience-showcase__logo svg {
+  width: clamp(52px, 5vw, 72px);
+  height: auto;
+  color: var(--signature-light, #d5f5ff);
+  filter: drop-shadow(0 0 12px rgba(74, 190, 255, 0.2));
+}
